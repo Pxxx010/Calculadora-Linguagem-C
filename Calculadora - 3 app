@@ -1,0 +1,86 @@
+#include <stdio.h>
+
+int main() {
+
+    int escolha; // Variavel do switch
+    float N1, N2, MEDIAALUNO; // Variavel da case 1
+    double MEDIAESCOLA;// Variavel da case 1
+
+    float alcool, gasolina, valor, valor1; // Variavel da case 2
+
+    float ltanque, kml, totalkm; // Variavel da case 3
+
+    while (1) {
+        printf("Qual opcao voce deseja? \n\n 1-Media Escola \n 2-Abastecimento \n 3-Quantos Km seu carro roda com tanque cheio \n\n ->  ");
+        scanf("%d", &escolha);
+
+        switch (escolha) {
+
+            // CASE 01
+            case 1:
+                 printf("Qual a sua primeira nota?\n ");
+                    scanf("%f", &N1);
+                 printf("Qual a sua segunda nota?\n ");
+                    scanf("%f", &N2);
+
+                  MEDIAESCOLA = 6;
+                  MEDIAALUNO = (N1 + N2) / 2;
+
+                  if (MEDIAALUNO == MEDIAESCOLA)
+                    printf("Aluno Aprovado! \n Parabens, voce foi aprovado por media");
+                  else
+                    if (MEDIAALUNO > MEDIAESCOLA)
+                      printf(" Aluno Aprovado! \n Sua média foi -> %.1lf", MEDIAALUNO);
+                    else
+                      printf("Aluno Reprovado \n Sua média foi -> %.1lf", MEDIAALUNO);
+
+                  printf("\n");
+                  system("pause");
+                  break;
+
+            // CASE 02
+            case 2:
+                printf("Qual valor do alcool?\n ");
+                    scanf("%f", &alcool);
+                 printf("Qual valor da gasolina?\n ");
+                    scanf("%f", &gasolina);
+
+                valor = alcool / gasolina;
+
+                valor1 = 0.7;
+                if (valor1 == valor)
+                    printf("Abasteca com alcool!");
+                else
+                    if (valor > valor1)
+                        printf("Abasteca com gasolina");
+                    else
+                        printf("Abasteca com Alcool");
+                        printf("\n");
+                  system("pause");
+                  break;
+
+            // CASE 03
+            case 3:
+                printf("Quantos litros tem o tanque do seu carro/moto? \n ->  ");
+                scanf("%f", &ltanque);
+                printf("Quantos Km por litro ele faz? \n ->  ");
+                scanf("%f", &kml);
+
+                totalkm = ltanque * kml;
+
+                printf("\n \nSeu carro irar fazer %.0fKm com o tanque cheio \n \n", totalkm);
+                system("pause");
+                break;
+
+            // DEFAULT
+            default:
+                printf("\n \n------------- Escolha invalida. Escolha apenas entre 1 e 3. -------------\n \n \n");
+                while(getchar() != '\n'); // Limpa o buffer de entrada
+                continue; // Repete o loop
+        }
+
+        break; // Sai do loop se uma escolha válida foi feita
+    }
+
+    return 0;
+}
